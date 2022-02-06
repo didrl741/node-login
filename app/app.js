@@ -1,38 +1,22 @@
+// app.listen() 모듈화 (분리)
+// bin 폴더 내의 www.js로 분리했다.
+
 const express = require("express");
 const app = express();
 
-app.get("/", (req, res) => {
-    res.send("여기는 루트입니다.");
-});
 
-app.get("/login", (req, res) => {
-    res.send("여기는 로그인화면 입니다.");
-})
-
-app.listen(3000, function () {
-    console.log("server run!");
-})
-
-// terminal에서 node app.js 하면 서버가 실행됨.
-// localhost:3000 으로 접속해보자.
-// ctrl c 하면 서버 종료.
+const home = require("./src/routes/home");
 
 
-// http로 구현 (구버전)
+app.set("views", "./src/views");
+app.set("view engine", "ejs");
 
-// const http = require("http");       // 내장모듈. npm에서 다운로드 안해도됨.
-// const app = http.createServer((req, res) => {
-//     res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-//     if (req.url === "/") {
-//         res.end("여기는 루트");
-//     } else if (req.url === "/login") {
-//         res.end("여기는 로그인 화면");
-//     }
-// });
+// __dirname: 현재위치 반환.
+// src 안에 public이라는 폴더를 정적경로로 추가해주겠다는 의미.
+// 이러면 login.ejs에서 /js를 보면 public의 js폴더로 접근하게 됨.
+app.use(express.static(`${__dirname}/src/public`));
 
-// app.listen(3001, () => {
-//     console.log("http로 가동된 서버입니다.");
-// })
+app.use("/", home);
 
-// http를 이용한 서버의 단점 : 한글처리를 따로 해줘야 함,
-// express의 문법이 더 간단. http는 if, else 등등 써줘야 함.
+// www.js에서 쓸수 있도록 export
+module.exports = app;
