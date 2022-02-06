@@ -1,4 +1,16 @@
+				gitignore
 node_modules 폴더는 깃에 업로드 안해도 된다.
 용량이 크고, package.json과 package-lock.json으로 만들 수 있기 때문.
 terminal에서 nano .gitignore 치면 편집창이 나오는데 /node_modules 엔터
 컨트롤 X로 저장하고 나오면 된다.
+
+node_modules폴더가 다른 경로로 옮겨지면? -> 방지하기 위해
+**node_modules ( 모든 디렉토리의 저 이름을 가진것 ignore) 쓰자.
+
+
+가장 좋은 방법: gitignore의 template을 Node로 설정
+: Node프로젝트를 개발할 때 업로드되면 안되는 파일들 정리돼있음.
+쭉 내려서 node_modules 앞에 ** 붙여주자.
+
+
+
