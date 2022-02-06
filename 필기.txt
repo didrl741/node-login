@@ -1,0 +1,4 @@
+node_modules 폴더는 깃에 업로드 안해도 된다.
+용량이 크고, package.json과 package-lock.json으로 만들 수 있기 때문.
+terminal에서 nano .gitignore 치면 편집창이 나오는데 /node_modules 엔터
+컨트롤 X로 저장하고 나오면 된다.
