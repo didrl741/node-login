@@ -44,7 +44,3 @@ npm install nodeomon -g 입력해서 전역으로 깔자.
 
 
 
-
-
-
-

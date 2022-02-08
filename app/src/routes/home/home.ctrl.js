@@ -1,14 +1,24 @@
-const hello = (req, res) => {
-    res.render("home/index");
+
+
+const output = {
+    home: (req, res) => {
+        res.render("home/index");
+    },
+
+    login: (req, res) => {
+        res.render("home/login");
+    },
+}
+
+const process = {
+    login: (req, res) => {
+        console.log(req.body);
+    },
 };
 
-const login = (req, res) => {
-    res.render("home/login");
-};
 
-// 위 두 함수를 외부(index.js에서 사용할수 있게 export)
 module.exports = {
-    hello,
-    login,
+    output,
+    process,
 };
 
