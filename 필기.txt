@@ -33,3 +33,18 @@ npm install nodeomon -g 입력해서 전역으로 깔자.
 
 또는, package.json의 "start": "nodemon ./bin/www.js"
 로 해두면 npm start 입력시 저절로 nodemon 실행된다!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
